@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', async () => {
  /*   const dataUrl =
-      'https://script.google.com/macros/s/AKfycbw1KAhYbM4ZmOKAQjTlUxk5XrivtITa0pMM2ohChNpqvtkGHPoROFsTSphRPv3idbk4/exec' */
+      'https://script.google.com/macros/s/AKfycbwWkcfx1OL9X18FxN-qzppSrz-Rz9MUcQ_GM_MD7iFfFnegltXxirbLHP0ba7guCWPt/exec' */
     const dataUrl = './scripts/data.json'
 
    const menu = document.querySelector('.iframe__nav')
