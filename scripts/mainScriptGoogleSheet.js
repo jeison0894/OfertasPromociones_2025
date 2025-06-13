@@ -42,20 +42,20 @@ document.addEventListener('DOMContentLoaded', async () => {
       )
    }
 
-   const getEstadoStyles = (estado) => {
+   const getEstadoStyles = (offerState) => {
       if (
-         /SOLO X \d+ HORAS/i.test(estado) ||
-         estado.toUpperCase() === 'AGOTADO'
+         /SOLO X \d+ HORAS/i.test(offerState) ||
+         offerState.toUpperCase() === 'AGOTADO'
       ) {
          return {
             borderColor: 'red',
             bgColor: 'red',
             textColor: 'white',
-            text: estado.toUpperCase(),
+            text: offerState.toUpperCase(),
             borderWidth: '3px',
          }
       }
-      if (estado.toUpperCase() === 'LANZAMIENTO') {
+      if (offerState.toUpperCase() === 'LANZAMIENTO') {
          return {
             borderColor: '#aad500',
             bgColor: '#aad500',
@@ -80,7 +80,7 @@ document.addEventListener('DOMContentLoaded', async () => {
       const fragment = document.createDocumentFragment()
 
       const tieneSoloXHoras = productos.some((p) =>
-         /SOLO X \d+ HORAS/i.test(p.estado_oferta)
+         /SOLO X \d+ HORAS/i.test(p.offerState)
       )
 
       if (tieneSoloXHoras) {
@@ -97,13 +97,13 @@ document.addEventListener('DOMContentLoaded', async () => {
 
       productos
          .filter((producto) => {
-            const inicio = new Date(producto.fecha_inicio)
-            const fin = new Date(producto.fecha_fin)
-            return !producto.ocultar_producto && hoy >= inicio && hoy <= fin
+            const inicio = new Date(producto.startDate)
+            const fin = new Date(producto.endDate)
+            return !producto.isProductHidden && hoy >= inicio && hoy <= fin
          })
          .sort((a, b) => a.orden_sellout - b.orden_sellout)
          .forEach((producto) => {
-            const estadoStyles = getEstadoStyles(producto.estado_oferta)
+            const estadoStyles = getEstadoStyles(producto.offerState)
             const productoClone = template.content.cloneNode(!0)
             const link = productoClone.querySelector('.iframe__categorias-link')
             const img = productoClone.querySelector('.iframe__categorias-image')
@@ -115,20 +115,20 @@ document.addEventListener('DOMContentLoaded', async () => {
                '.iframe__tag--mobile'
             )
 
-            link.href = producto.url
-            link.dataset.id = producto.ID
-            link.dataset.llamado = producto.llamado
+            link.href = producto.urlProduct
+            link.dataset.id = producto.id
+            link.dataset.title = producto.title
 
-            if (/SOLO X \d+ HORAS/i.test(producto.estado_oferta)) {
-               link.dataset.categoria = `${producto.categoria} SoloX`
+            if (/SOLO X \d+ HORAS/i.test(producto.offerState)) {
+               link.dataset.category = `${producto.category} SoloX`
             } else {
-               link.dataset.categoria = producto.categoria
+               link.dataset.category = producto.category
             }
 
-            img.src = producto.url_image
-            img.alt = producto.llamado || 'Imagen de producto'
+            img.src = producto.urlImage
+            img.alt = producto.title || 'Imagen de producto'
             img.style.border = `${estadoStyles.borderWidth} solid ${estadoStyles.borderColor}`
-            title.innerHTML = styleText(producto.llamado || '')
+            title.innerHTML = styleText(producto.title || '')
 
             if (estadoStyles.text) {
                tagDesktop.style.backgroundColor = estadoStyles.bgColor

@@ -1,7 +1,7 @@
-const supabaseUrl = 'https://pwnysdqtryhpsxbwduxx.supabase.co'
+/* const supabaseUrl = 'https://pwnysdqtryhpsxbwduxx.supabase.co'
 const supabaseKey =
    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InB3bnlzZHF0cnlocHN4YndkdXh4Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDAyNTgxMDgsImV4cCI6MjA1NTgzNDEwOH0.fdasu8s64B9wN9sh6zTQ3WLwX-4d_sfAMzMODMfDF1o'
-const supabase = window.supabase.createClient(supabaseUrl, supabaseKey)
+const supabase = window.supabase.createClient(supabaseUrl, supabaseKey) */
 
 async function trackCategoryClick(category) {
    const today = new Date().toLocaleDateString('en-CA')
