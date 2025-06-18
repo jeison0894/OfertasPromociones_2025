@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', async () => {
    /*  const dataUrl =
      'https://script.google.com/macros/s/AKfycbw1KAhYbM4ZmOKAQjTlUxk5XrivtITa0pMM2ohChNpqvtkGHPoROFsTSphRPv3idbk4/exec' */
-   const dataUrl = './scripts/data.json'
+   const dataUrl = './scripts/dataCyber.json'
    const menu = document.querySelector('.iframe__nav')
    const seocontainer = document.querySelector('.seo__wrapper')
    const skeletonContainer = document.querySelector('.skeleton-container')
@@ -101,7 +101,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             const fin = new Date(producto.endDate)
             return !producto.isProductHidden && hoy >= inicio && hoy <= fin
          })
-         .sort((a, b) => a.orden_sellout - b.orden_sellout)
+         .sort((a, b) => a.orderSellout - b.orderSellout)
          .forEach((producto) => {
             const estadoStyles = getEstadoStyles(producto.offerState)
             const productoClone = template.content.cloneNode(!0)
