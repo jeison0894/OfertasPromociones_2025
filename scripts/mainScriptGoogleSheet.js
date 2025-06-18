@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', async () => {
-   /*  const dataUrl =
-     'https://script.google.com/macros/s/AKfycbw1KAhYbM4ZmOKAQjTlUxk5XrivtITa0pMM2ohChNpqvtkGHPoROFsTSphRPv3idbk4/exec' */
-   const dataUrl = './scripts/dataCyber.json'
+   const dataUrl =
+      'https://script.google.com/macros/s/AKfycbw1KAhYbM4ZmOKAQjTlUxk5XrivtITa0pMM2ohChNpqvtkGHPoROFsTSphRPv3idbk4/exec'
+   /*  const dataUrl = './scripts/dataCyber.json' */
    const menu = document.querySelector('.iframe__nav')
    const seocontainer = document.querySelector('.seo__wrapper')
    const skeletonContainer = document.querySelector('.skeleton-container')
