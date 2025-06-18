@@ -91,7 +91,7 @@ document.addEventListener('DOMContentLoaded', async () => {
          const supabase = window.supabase.createClient(supabaseUrl, supabaseKey)
 
          let { data: listProducts, error } = await supabase
-            .from('cyber')
+            .from('cyber_frontend')
             .select('*')
              .order('orderSellout', { ascending: true })
 
