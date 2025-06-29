@@ -1,0 +1,15 @@
+{
+   "name": "ofertaspromociones_2025",
+   "version": "1.0.0",
+   "description": "Landing de promociones 2025 para Falabella",
+   "main": "index.js",
+   "scripts": {
+      "build": "esbuild scripts/index.js --bundle --minify --format=iife --outfile=bundle.min.js"
+   },
+   "author": "",
+   "license": "UNLICENSED",
+   "sideEffects": true,
+   "devDependencies": {
+      "esbuild": "^0.25.5"
+   }
+}
