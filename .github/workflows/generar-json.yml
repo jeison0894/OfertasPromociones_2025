@@ -1,0 +1,16 @@
+name: Generar JSON desde Supabase
+
+on:
+  schedule:
+    - cron: '*/20 * * * *' # Cada 20 minutos
+  workflow_dispatch: # Permite ejecutarlo manualmente también
+
+jobs:
+  llamar-funcion:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Llamar a función Edge de Supabase
+        run: |
+          curl -X POST "https://pwnysdqtryhpsxbwduxx.supabase.co/functions/v1/generar-json-productos" \
+          -H "Authorization: Bearer ${{ secrets.SUPABASE_SERVICE_ROLE }}"
