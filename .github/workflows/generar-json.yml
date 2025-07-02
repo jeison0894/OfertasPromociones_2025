@@ -2,7 +2,7 @@ name: Generar JSON desde Supabase
 
 on:
   schedule:
-    - cron: '*/20 * * * *' # Cada 20 minutos
+         -  cron: "*/20 0-5,12-23 * * *"
   workflow_dispatch: # Permite ejecutarlo manualmente también
 
 jobs:
